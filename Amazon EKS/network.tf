@@ -6,6 +6,15 @@
 # Amazon EKS networking
 # https://docs.aws.amazon.com/eks/latest/userguide/eks-networking.html
 
+###
+# Resume of this file
+###
+# Create a VPC, with 2 public subnet and 2 private subnet
+# Create a Elastic IP, Internet Gateway and Nat Gateway
+# This is a basic Network infrasestructure to create a EKS
+# After running this terraformation you need execute command eksclt
+####
+
 # Create a VPC of K8S
 resource "aws_vpc" "eks_vpc" {
   cidr_block = "10.0.0.0/16"
@@ -123,15 +132,20 @@ resource "aws_route_table" "eks_public_rt" {
 }
 
 ###
-# NAT Gateway
+# Elastic IP
 ###
-# NAT Gateway allow Private Subnet to access Internet
+# This IP will be used on NAT Gateway
 resource "aws_eip" "eks_eip" {
   vpc = true
   tags = {
     "Name" = format("%s-elastic-ip", var.cluster_name)
   }
 }
+
+###
+# NAT Gateway
+###
+
 # Associate NAT Gateway with Public Subnet, this get one IP address \
 # of Public Subnet and allow traffic there
 resource "aws_nat_gateway" "eks_nat_gw" {
