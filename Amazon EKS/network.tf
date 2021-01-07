@@ -21,7 +21,7 @@ resource "aws_vpc" "eks_vpc" {
 ###
 # Create a Public Subnet A for K8S
 resource "aws_subnet" "eks_subnet_public_1a" {
-    vpc_id = aws_vpc.myvpc.id
+    vpc_id = aws_vpc.eks_vpc.id
 
     cidr_block = "10.0.10.0/24"
     map_public_ip_on_launch = true
@@ -37,7 +37,7 @@ resource "aws_subnet" "eks_subnet_public_1a" {
 
 # Create a Public Subnet B for K8S
 resource "aws_subnet" "eks_subnet_public_1b" {
-    vpc_id = aws_vpc.myvpc.id
+    vpc_id = aws_vpc.eks_vpc.id
 
     cidr_block = "10.0.11.0/24"
     map_public_ip_on_launch = true
@@ -71,7 +71,7 @@ resource "aws_route_table_association" "eks_public_rt_association_1b" {
 resource "aws_subnet" "eks_subnet_private_1a" {
   vpc_id            = aws_vpc.eks_vpc.id
   cidr_block        = "10.0.20.0/24"
-  availability_zone = format("%sa", var.region)
+  availability_zone = format("%sa", var.aws_region)
 
   tags = {
     Name = format("%s-subnet-private-1a", var.cluster_name)
@@ -82,7 +82,7 @@ resource "aws_subnet" "eks_subnet_private_1a" {
 resource "aws_subnet" "eks_subnet_private_1b" {
   vpc_id            = aws_vpc.eks_vpc.id
   cidr_block        = "10.0.21.0/24"
-  availability_zone = format("%sb", var.region)
+  availability_zone = format("%sb", var.aws_region)
 
   tags = {
     Name = format("%s-subnet-private-1b", var.cluster_name)
