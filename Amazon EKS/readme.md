@@ -32,7 +32,7 @@ eksctl create cluster --name myCluster --version 1.18 \
     --region us-east-1 --managed --nodes 2 --nodes-min 1 --nodes-max 3 \
     --vpc-private-subnets=subnet-01c79b7b090b5199c,subnet-0f6efb0ee6d338ea6 \
     --vpc-public-subnets=subnet-0063e09cc658b0943,subnet-0dc1380dc72a626a2
-``
+```
 
 ### Cost
 https://aws.amazon.com/ec2/pricing/on-demand/
