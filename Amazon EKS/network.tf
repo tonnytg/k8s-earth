@@ -1,3 +1,9 @@
+###
+#   Hello friend, this manifest will help you to build a EKS network with Terraform,
+#   but you dont't need this terraform because command eksctl build everything with one command :D
+#   this terraform can help you when you can't use eksctl just like at this cases.
+###
+
 # Terraform DOC
 # At this file exist all configuration nedded to K8S Network
 # This files following AWS Documentaion for terraform
@@ -26,11 +32,12 @@
 
 ###
 #   Cost
+#   https://aws.amazon.com/ec2/pricing/on-demand/
 ###
 #   2 instances = m5.large 0,096 USD    x 2 = 0,192/hour x 24 hours = $4/day
 #   NAT Gateway = 0,045 USD/hours       x 24 hours                  = $1,08/day
 #   
-#   Total Cost                                                      = $5,08/day
+#   Total Cost  = 0,141/hour USD                                    = $5,08/day
 ###
 
 # Create a VPC of K8S
@@ -89,7 +96,6 @@ resource "aws_route_table_association" "eks_public_rt_association_1b" {
   subnet_id      = aws_subnet.eks_subnet_public_1b.id
   route_table_id = aws_route_table.eks_public_rt.id # Link with Internet Gateway
 }
-
 
 ####
 # Private Subnet
