@@ -27,7 +27,7 @@ Resume of this file
 ### After build VPC and Subnets
 This command build EKS Cluster with 2 Subnets private and 2 Subnets public
 https://eksctl.io/usage/vpc-networking/
-````
+```
 eksctl create cluster --name myCluster --version 1.18 \
     --region us-east-1 --managed --nodes 2 --nodes-min 1 --nodes-max 3 \
     --vpc-private-subnets=subnet-01c79b7b090b5199c,subnet-0f6efb0ee6d338ea6 \
