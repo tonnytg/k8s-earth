@@ -37,6 +37,7 @@ eksctl create cluster --name myCluster --version 1.18 \
 ### Cost
 https://aws.amazon.com/ec2/pricing/on-demand/
 
+```
 2 instances = m5.large 0,096 USD    x 2 = 0,192/hour x 24 hours = $4/day
 NAT Gateway = 0,045 USD/hours       x 24 hours                  = $1,08/day
 
@@ -49,3 +50,4 @@ Total Cost  = 0,141/hour USD                                    = $5,08/day
 | NAT Gat | 0,045 |   1    | 1,08 USD  |
 |         |       |        |           |
 | Total   |       |        | 5,08 USD  |
+```
