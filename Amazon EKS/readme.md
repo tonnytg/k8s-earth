@@ -44,10 +44,10 @@ NAT Gateway = 0,045 USD/hours       x 24 hours                  = $1,08/day
 Total Cost  = 0,141/hour USD                                    = $5,08/day
 
 
-| Object  | HOUR  | QUANTY | TOTAL DAY |
-+---------+-------+--------+-----------+
-| m5.large| 0,096 |   2    | 4,00 USD  |
-| NAT Gat | 0,045 |   1    | 1,08 USD  |
-|         |       |        |           |
-| Total   |       |        | 5,08 USD  |
+| Object  | HOUR  | QUANTITY | TOTAL DAY |
++---------+-------+----------+-----------+
+| m5.large| 0,096 |   2      | 4,00 USD  |
+| NAT Gat | 0,045 |   1      | 1,08 USD  |
+|         |       |          |           |
+| Total   |       |          | 5,08 USD  |
 ```
