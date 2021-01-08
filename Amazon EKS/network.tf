@@ -176,3 +176,25 @@ resource "aws_route_table" "eks_nat_rt" {
   }
 }
 
+###
+# Output
+###
+
+# Print Subnet ID to use construct $eksctl
+output "aws_subnet-public-1-id" {
+  value = aws_subnet.eks_subnet_public_1a.id
+}
+# Print Subnet ID to use construct $eksctl
+output "aws_subnet-public-2-id" {
+  value = aws_subnet.eks_subnet_public_1b.id
+}
+# Print Subnet ID to use construct $eksctl
+output "aws_subnet-private-1-id" {
+  value = aws_subnet.eks_subnet_private_1a.id
+}
+# Print Subnet ID to use construct $eksctl
+output "aws_subnet-private-2-id" {
+  value = aws_subnet.eks_subnet_private_1b.id
+}
+
+
