@@ -24,6 +24,15 @@
 #
 ####
 
+###
+#   Cost
+###
+#   2 instances = m5.large 0,096 USD    x 2 = 0,192/hour x 24 hours = $4/day
+#   NAT Gateway = 0,045 USD/hours       x 24 hours                  = $1,08/day
+#   
+#   Total Cost                                                      = $5,08/day
+###
+
 # Create a VPC of K8S
 resource "aws_vpc" "eks_vpc" {
   cidr_block = "10.0.0.0/16"
@@ -197,4 +206,9 @@ output "aws_subnet-private-2-id" {
   value = aws_subnet.eks_subnet_private_1b.id
 }
 
-
+###
+#   Help to build EKS
+###
+output "eks_command_to_build" {
+  value = var.eks_command
+}
