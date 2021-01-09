@@ -28,7 +28,15 @@ Resume of this file
 This command build EKS Cluster with 2 Subnets private and 2 Subnets public
 https://eksctl.io/usage/vpc-networking/
 
-!x Do not use eksctl to create a cluster or nodes in an AWS Region where you have AWS Outposts, AWS Wavelength, or AWS Local Zones enabled. Create a cluster and self-managed nodes using the Amazon EC2 API or AWS CloudFormation instead. For more information, see To launch self-managed Linux nodes using the AWS Management Console and To launch self-managed Windows nodes using the AWS Management Console.
+<div class="panel panel-danger">
+**Danger**
+{: .panel-heading}
+<div class="panel-body">
+
+ Do not use eksctl to create a cluster or nodes in an AWS Region where you have AWS Outposts, AWS Wavelength, or AWS Local Zones enabled. Create a cluster and self-managed nodes using the Amazon EC2 API or AWS CloudFormation instead. For more information, see To launch self-managed Linux nodes using the AWS Management Console and To launch self-managed Windows nodes using the AWS Management Console.
+
+</div>
+</div>
 
 ```
 eksctl create cluster --name myCluster --version 1.18 \
