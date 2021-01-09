@@ -34,10 +34,14 @@
 #   Cost
 #   https://aws.amazon.com/ec2/pricing/on-demand/
 ###
-#   2 instances = m5.large 0,096 USD    x 2 = 0,192/hour x 24 hours = $4/day
-#   NAT Gateway = 0,045 USD/hours       x 24 hours                  = $1,08/day
+#   m5.large x2 instance  = 0,096 USD/0,192/hour  x 24 hours    = $4,61/day
+#   NAT Gateway           = 0,045 USD/hours       x 24 hours    = $1,08/day
+#   Elastic IP            = 0,005 USB/hours       x 24 hours    = $0,12/day
+#   Cluster Kubernetes    = 0,10 USD/hour         x 24 hours    = $2,40/day
+#   Tax (Maybe)                                                 = + 14%
+#
 #   
-#   Total Cost  = 0,141/hour USD                                    = $5,08/day
+#   Total Cost          = 0,246/hour USD                        = $9,36/day
 ###
 
 # Create a VPC of K8S
