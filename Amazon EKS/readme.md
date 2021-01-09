@@ -38,16 +38,26 @@ eksctl create cluster --name myCluster --version 1.18 \
 https://aws.amazon.com/ec2/pricing/on-demand/
 
 ```
-2 instances = m5.large 0,096 USD    x 2 = 0,192/hour x 24 hours = $4/day
-NAT Gateway = 0,045 USD/hours       x 24 hours                  = $1,08/day
+###
+#   Cost
+#   https://aws.amazon.com/ec2/pricing/on-demand/
+###
+   m5.large x2 instance  = 0,096 USD/0,192/hour  x 24 hours     = $4,61/day
+   NAT Gateway           = 0,045 USD/hours       x 24 hours     = $1,08/day
+   Elastic IP            = 0,005 USB/hours       x 24 hours     = $0,12/day
+   Cluster Kubernetes    = 0,10 USD/hour         x 24 hours     = $2,40/day
+   Tax (Maybe)                                                  = + 14%
 
-Total Cost  = 0,141/hour USD                                    = $5,08/day
+   
+   Total Cost            = 0,246/hour USD                       = $9,36/day
 
 
-| Object  | HOUR  | QUANTITY | TOTAL DAY |
-+---------+-------+----------+-----------+
-| m5.large| 0,096 |   2      | 4,00 USD  |
-| NAT Gat | 0,045 |   1      | 1,08 USD  |
-|         |       |          |           |
-| Total   |       |          | 5,08 USD  |
+| Object     | HOUR  | QUANTITY | TOTAL DAY |
++------------+-------+----------+-----------+
+| m5.large   | 0,096 |   2      | 4,61 USD  |
+| NAT Gat    | 0,045 |   1      | 1,08 USD  |
+| Elastic IP | 0,005 |   1      | 0,12 USD  |
+| Cluster K8s| 0,10  |   1      | 2,40 USD  |
+|            |       |          |           |
+| Total      |       |          | 9,36 USD  |
 ```
