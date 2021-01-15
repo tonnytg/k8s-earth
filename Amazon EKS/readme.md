@@ -1,11 +1,18 @@
 # k8s-earth -> Amazon EKS
 Repo of K8S at IaC to rebuild my environment with Amazon EKS
 
+### network-handson
+> You can create your network and edit resources
+
+### network-module
+> You can create same network but with code clean
+
+
 > I used Terraform to build Network architecture to gain time
 
 Hello friend, this manifest will help you to build a EKS network with Terraform,
-but you dont't need this terraform because command eksctl build everything with one command :D
-this terraform can help you when you can't use eksctl just like at this cases.
+but you dont't need this terraform, because command eksctl build everything and network too, with one command :D
+this terraform can help you understand how something works when you can't use eksctl just like at this cases.
 
 
 ### Terraform DOC
@@ -17,8 +24,7 @@ Amazon EKS networking
 https://docs.aws.amazon.com/eks/latest/userguide/eks-networking.html
 
 
-Resume of this file
-
+### Resume of this file
 >Create a VPC, with 2 public subnet and 2 private subnet
 >Create a Elastic IP, Internet Gateway and Nat Gateway
 >This is a basic Network infrasestructure to create a EKS
