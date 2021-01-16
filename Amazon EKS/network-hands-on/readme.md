@@ -18,12 +18,12 @@ At this file exist all configuration nedded to K8S Network<br/>
 This files following AWS Documentaion for terraform<br/>
 https://registry.terraform.io/providers/hashicorp/aws/latest/docs<br/>
 
-# Amazon EKS networking
+### Amazon EKS networking
 https://docs.aws.amazon.com/eks/latest/userguide/eks-networking.html
 
-# After build VPC and Subnets
-# This command build EKS Cluster with 2 Subnets private and 2 Subnets public
-# https://eksctl.io/usage/vpc-networking/
+After build VPC and Subnets
+This command build EKS Cluster with 2 Subnets private and 2 Subnets public
+https://eksctl.io/usage/vpc-networking/
 
 > eksctl create cluster --name myCluster --version 1.18 \
 > --region us-east-1 --managed --nodes 2 --nodes-min 1 --nodes-max 3 \
