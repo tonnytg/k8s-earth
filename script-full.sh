@@ -14,7 +14,7 @@ function baseLinux() {
 }
 
 function kernelModule() {
-  # Carrega os módulos do kernel necessários
+ # Carrega os módulos do kernel necessários
   sudo modprobe overlay
   sudo modprobe br_netfilter
 
@@ -83,7 +83,6 @@ function configureK8sForRoot() {
   export KUBECONFIG=/etc/kubernetes/admin.conf
 }
 
-
 function installK8sCNI() {
   kubectl apply -f https://docs.projectcalico.org/manifests/crds.yaml
   kubectl apply -f https://docs.projectcalico.org/manifests/calico.yaml
@@ -91,12 +90,16 @@ function installK8sCNI() {
   kubectl create clusterrolebinding calico-kube-controllers --clusterrole=calico-kube-controllers --serviceaccount=kube-system:calico-kube-controllers
 }
 
-#function joinK8sCluster() {
-#  kubeadm join 172.26.8.101:6443 --token xxxx \
-#	--discovery-token-ca-cert-hash sha256:yyyyy
-#}
+function InstallHelm() {
+    curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
+    chmod 700 get_helm.sh
+    ./get_helm.sh
+}
 
 function InstallIngressNginx() {
+
+    helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+
     helm install nginx-ingress ingress-nginx/ingress-nginx \
   --namespace ingress-nginx \
   --create-namespace \
@@ -104,16 +107,6 @@ function InstallIngressNginx() {
   --set controller.service.nodePorts.http=30080 \
   --set controller.service.nodePorts.https=30443 \
   --set controller.publishService.enabled=true
-}
-
-function InstallIngressTraefik() {
-}
-
-
-function InstallHelm() {
-    curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
-    chmod 700 get_helm.sh
-    ./get_helm.sh
 }
 
 function InstallIngressTraefik() {
@@ -206,11 +199,15 @@ EOF
     --wait
 
   echo "✅ Traefik instalado no namespace '$NAMESPACE'."
-
+ 
   # Verifica se o Pod está rodando
   kubectl get pods -n $NAMESPACE -o wide
 }
 
+function joinK8sCluster() {
+  kubeadm join 172.26.8.101:6443 --token xxxx \
+	--discovery-token-ca-cert-hash sha256:yyyyy
+}
 
 function AllowSNAT() {
 
@@ -232,3 +229,5 @@ configureK8s
 configureK8sForRoot
 configureK8skubectl
 installK9sCNI
+InstallHelm
+InstallIngressNginx
